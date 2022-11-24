@@ -30,9 +30,9 @@ const HeaderRight = memo((props) => {
     props.loginOptionHandle();
   };
 
-  const panelItemClickHandle = (e) => {
-    e.nativeEvent.stopImmediatePropagation();
+  const panelItemClickHandle = (event) => {
     props.loginOptionHandle();
+    event.stopPropagation();
   };
   return (
     <RightWrapper>
