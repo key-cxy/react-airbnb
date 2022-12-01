@@ -1,7 +1,8 @@
-import IconMoreArrow from "@/assets/svg/icon-more-arrow";
 import PropTypes from "prop-types";
 import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
+
+import IconMoreArrow from "@/assets/svg/icon-more-arrow";
 import { FooterWrapper } from "./style";
 
 const SectionFooter = memo((props) => {

@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import React, { memo, useState } from "react";
+
 import ScrollView from "../scroll-view";
 import { TabsWrapper } from "./style";
 

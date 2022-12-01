@@ -23,13 +23,13 @@ export const ViewWrapper = styled.div`
     &.left {
       left: 0;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-40%, -50%);
     }
 
     &.right {
       right: 0;
       top: 50%;
-      transform: translate(50%, -50%);
+      transform: translate(40%, -50%);
     }
   }
 

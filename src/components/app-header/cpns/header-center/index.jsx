@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
-import { CenterWrapper } from "./style";
 import IconSearchBar from "@/assets/svg/icon-search-bar";
+import { CenterWrapper } from "./style";
 
 const HeaderCenter = memo(() => {
   return (

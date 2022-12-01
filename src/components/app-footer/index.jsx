@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
-import { FooterWrapper } from "./style";
 import footerData from "@/assets/data/footer.json";
+import { FooterWrapper } from "./style";
 const AppFooter = memo(() => {
   return (
     <FooterWrapper>

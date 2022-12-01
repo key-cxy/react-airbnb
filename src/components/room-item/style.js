@@ -1,63 +1,141 @@
 import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
-  padding: 8px;
-  padding-top: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
   width: ${(props) => props.itemWidth};
-  cursor: pointer;
-  font-weight: 800;
+  padding: 8px;
+
+  .inner {
+    width: 100%;
+  }
 
   .cover {
     position: relative;
+    box-sizing: border-box;
     padding: 66.66% 8px 0;
+    border-radius: 3px;
+    overflow: hidden;
 
-    img {
-      width: 100%;
-      height: 100%;
+    img,
+    .cover-img {
       position: absolute;
       left: 0;
       top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .slider {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      .control {
+        display: flex;
+      }
+    }
+
+    .control {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      display: none;
+      justify-content: space-between;
+      bottom: 0;
+      color: #fff;
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 83px;
+        height: 100%;
+        background: linear-gradient(
+          to left,
+          transparent 0%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
+
+        &.right {
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.25) 100%
+          );
+        }
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      z-index: 9;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 30%;
+      margin: 0 auto;
+
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 14.29%;
+
+        .dot {
+          width: 6px;
+          height: 6px;
+          background-color: #fff;
+          border-radius: 50%;
+
+          &.active {
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
     }
   }
 
   .desc {
+    margin: 10px 0 5px;
     font-size: 12px;
-    line-height: 16px;
-    margin-top: 8px;
+    font-weight: 700;
     color: ${(props) => props.verifyColor};
   }
 
   .name {
-    width: 100%;
-    color: ${(props) => props.theme.textColor.secondary};
-    line-height: 22px;
     font-size: 16px;
-    white-space: wrap;
+    font-weight: 700;
+
     overflow: hidden;
     text-overflow: ellipsis;
+    display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    display: -webkit-box;
   }
 
   .price {
-    line-height: 20px;
-    color: ${(props) => props.theme.textColor.secondary};
-    font-weight: 400;
+    margin: 8px 0;
   }
 
   .bottom {
     display: flex;
     align-items: center;
-
-    .ant-rate-star {
-      margin-right: 1px !important;
-    }
+    font-size: 12px;
+    font-weight: 600;
+    color: ${(props) => props.theme.textColor.primary};
 
     .count {
-      font-size: 12px;
-      margin-top: 1px;
-      margin-left: 2px;
+      margin: 0 2px 0 4px;
+    }
+
+    .MuiRating-decimal {
+      margin-right: -2px;
     }
   }
 `;

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { memo } from "react";
+
 import RoomItem from "../room-item";
 import { RoomWrapper } from "./style";
 

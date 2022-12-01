@@ -8,6 +8,7 @@ import HomeSectionV1 from "./cpns/home-section-v1";
 import HomeSectionV2 from "./cpns/home-section-v2";
 import { isEmptyObject } from "@/utils/is-empty-object";
 import HomeSectionV3 from "./cpns/home-section-v3";
+import HomeLongfor from "./cpns/home-longfor";
 
 const Home = memo(() => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Home = memo(() => {
     highScoreInfo,
     discountInfo,
     recommendInfo,
+    longforInfo,
     plusInfo,
   } = useSelector(
     (state) => ({
@@ -26,6 +28,7 @@ const Home = memo(() => {
       highScoreInfo: state.home.highScoreInfo,
       discountInfo: state.home.discountInfo,
       recommendInfo: state.home.recommendInfo,
+      longforInfo: state.home.longforInfo,
       plusInfo: state.home.plusInfo,
     }),
     shallowEqual
@@ -45,6 +48,9 @@ const Home = memo(() => {
           <HomeSectionV2 dataInfo={recommendInfo} />
         )}
 
+        {/* longfor */}
+        {isEmptyObject(longforInfo) && <HomeLongfor dataInfo={longforInfo} />}
+
         {/* 好评 */}
         {isEmptyObject(highScoreInfo) && (
           <HomeSectionV1 dataInfo={highScoreInfo} />
@@ -56,7 +62,7 @@ const Home = memo(() => {
         )}
 
         {/* plus */}
-        {/* {isEmptyObject(plusInfo) && <HomeSectionV3 dataInfo={plusInfo} />} */}
+        {isEmptyObject(plusInfo) && <HomeSectionV3 dataInfo={plusInfo} />}
       </div>
     </HomeWrapper>
   );

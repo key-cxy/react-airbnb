@@ -1,9 +1,9 @@
 import React, { forwardRef, memo, useImperativeHandle, useState } from "react";
 
-import { Modal, Checkbox } from "antd";
-import { LoginWrapper } from "./style";
 import CloseBtn from "@/assets/svg/close_btn";
 import PhoneLogin from "./cpns/phone-login";
+import { Modal, Checkbox } from "antd";
+import { LoginWrapper } from "./style";
 
 const LoginContext = memo(
   forwardRef((props, ref) => {

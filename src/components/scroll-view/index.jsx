@@ -1,16 +1,17 @@
 import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
+import { useRef } from "react";
 import { ViewWrapper } from "./style";
 
 const ScrollView = memo((props) => {
-  // 初始化数据
+  /** 定义内部的状态 */
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(false);
   const [posIndex, setPosIndex] = useState(0);
-  const totalDistanceRef = useRef(); // 每次获取保持不变
+  const totalDistanceRef = useRef();
 
-  // 判断IconArrow是否显示
+  /** 组件渲染完毕, 判断是否显示右侧的按钮 */
   const scrollContentRef = useRef();
   useEffect(() => {
     const scrollWidth = scrollContentRef.current.scrollWidth; // 一共可以滚动的宽度
@@ -18,24 +19,27 @@ const ScrollView = memo((props) => {
     const totalDistance = scrollWidth - clientWidth;
     totalDistanceRef.current = totalDistance;
     setShowRight(totalDistance > 0);
+    console.log(
+      scrollContentRef.current,
+      "scrollWidth: ",
+      scrollWidth,
+      "clientWidth: ",
+      clientWidth
+    );
   }, [props.children]);
 
-  // 事件处理函数(每次点击一下一格)
-  const controlClickHandle = (isRight) => {
+  /** 事件处理的逻辑 */
+  function controlClickHandle(isRight) {
     const newIndex = isRight ? posIndex + 1 : posIndex - 1;
     const newEl = scrollContentRef.current.children[newIndex];
     const newOffsetLeft = newEl.offsetLeft;
     scrollContentRef.current.style.transform = `translate(-${newOffsetLeft}px)`;
     setPosIndex(newIndex);
-    // 是否展示右侧按钮
-    console.log(
-      totalDistanceRef.current,
-      newOffsetLeft,
-      "totalDistanceRef.current"
-    );
+    // 是否继续显示右侧的按钮
     setShowRight(totalDistanceRef.current > newOffsetLeft);
     setShowLeft(newOffsetLeft > 0);
-  };
+  }
+
   return (
     <ViewWrapper>
       {showLeft && (

@@ -1,9 +1,9 @@
 import React, { memo, useEffect, useState } from "react";
 
-import { RightWrapper } from "./style";
 import IconGlobal from "@/assets/svg/icon_global";
 import IconMenu from "@/assets/svg/icon_menu";
 import IconAvatar from "@/assets/svg/icon_avatar";
+import { RightWrapper } from "./style";
 
 const HeaderRight = memo((props) => {
   const [showPanel, setShowPanel] = useState(false);
